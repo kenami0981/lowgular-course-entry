@@ -1,13 +1,13 @@
 <h1>Employee list</h1>
 <ul *ngIf="data$ | async as data; else empty">
-  <li *ngFor="let employee of data">{{ employee.id }}: {{ employee.name }}</li>
+  <li *ngFor="let employee of data">{{ employee.personalNumber }}: {{ employee.name }}</li>
 </ul>
 
 <ng-template #empty> There is no data </ng-template>
 
 <div style="display: flex; align-item: center; justify-content: center;">
   <div *ngFor="let employee of data$ | async">
-    <img [src]="employee.image" style="float: left; width: 300px; padding: 10px;">
+    <img [src]="employee.img" style="float: left; width: 300px; padding: 10px;">
     <span style="display: block;align-items: normal;justify-content: normal;margin-left: 140px">{{employee.name}}</span>
   </div>
 </div>
