@@ -1,5 +1,5 @@
 export interface PersonModel {
-  readonly personalNumber: number;
+  readonly personalNumber: string;
   readonly name: string;
   readonly mail: string;
   readonly img: string;
