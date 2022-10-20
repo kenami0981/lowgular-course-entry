@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 import { EmployeeService } from '../../services/employee.service';
-import {AddEmployeeModel} from "../../model/add-employee.model";
+import {EmployeeModel} from "../../model/employee.model";
 
 @Component({
   selector: 'app-employee-form',
@@ -11,16 +11,15 @@ import {AddEmployeeModel} from "../../model/add-employee.model";
 })
 export class EmployeeFormComponent {
   readonly employeeForm: FormGroup = new FormGroup({
-    name: new FormControl(null, [Validators.required]),
-    age: new FormControl(null, [Validators.min(1)]),
-    salary: new FormControl(null, [Validators.min(0.000001), Validators.required])
+    name: new FormControl(),
+    age: new FormControl(),
+    salary: new FormControl(),
   });
 
   constructor(private _employeeService: EmployeeService) {
   }
+  create(form: EmployeeModel) {
+    this._employeeService.create({name: form.name, salary: form.salary, age: form.age, id:'',image:''}).subscribe()
 
-  onButtonSubmitted(FV: AddEmployeeModel) {
-    alert('User was successfully added to database. Name: ' + FV.name + ', Age: ' + FV.age + ', Salary: ' + FV.salary);
-    this._employeeService.createEmployee(FV).subscribe()
   }
 }
