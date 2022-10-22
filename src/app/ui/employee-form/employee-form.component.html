@@ -1,6 +1,15 @@
-<form [formGroup]="employeeForm" (ngSubmit)="create(employeeForm.value)">
-  <input type="text" placeholder="Name" formControlName="name">
-  <input type="number" placeholder="Age"formControlName="age">
-  <input type="number" placeholder="Salary" formControlName="salary">
-  <input type="submit" value="Submit">
+<div class="container">
+<h1 class="text-center p-2 bold">Create employee form:</h1>
+<form [formGroup]="employeeForm" (ngSubmit)="create(employeeForm.value)" class="border-dark form-control p-3 bg-secondary bg-opacity-50">
+  <div class="row justify-content-center">
+    <div class="col">
+    <input type="text" placeholder="Name" formControlName="name" class="w-100 rounded" ></div>
+    <div class="col">
+    <input type="number" placeholder="Age"formControlName="age" class="w-100 ml-3 rounded"></div>
+    <div class="col">
+    <input type="number" placeholder="Salary" formControlName="salary" class="w-75 rounded"></div>
+
+  <div class="col">
+    <button type="submit" value="Submit" class="mt-3" class="bg-light rounded w-50">Submit</button></div></div>
 </form>
+</div>

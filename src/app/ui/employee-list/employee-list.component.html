@@ -1,4 +1,23 @@
-<h1>Employee list</h1>
-<ul>
-  <li *ngFor="let employee of data$|async">{{employee.name}}<button (click)="delete(employee.id)">Delete employee</button></li>
-</ul>
+
+<div class=" container">
+  <h2 class="text-center">Employee list</h2>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th scope="col">Id</th>
+    <th scope="col">Name</th>
+    <th scope="col">Age</th>
+    <th scope="col">Salary</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let employee of data$|async">
+    <th scope="row">{{employee.id}}</th>
+    <td>{{employee.name}}</td>
+    <td>{{employee.age}}</td>
+    <td>{{employee.salary}}</td>
+  </tr>
+  </tbody>
+</table>
+</div>
