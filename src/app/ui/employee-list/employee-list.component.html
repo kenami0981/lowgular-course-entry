@@ -12,11 +12,11 @@
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let employee of data$|async" [routerLink]="'../employee-details/'+employee.id+'/'+employee.name">
-    <th scope="row">{{employee.id}}</th>
-    <td>{{employee.name}}</td>
-    <td>{{employee.age}}</td>
-    <td>{{employee.salary}}</td>
+  <tr *ngFor="let employee of data$|async" [routerLink]="'../employee-details/'+employee.id">
+    <th style="cursor: pointer" scope="row">{{employee.id}}</th>
+    <td style="cursor: pointer">{{employee.name}}</td>
+    <td class="user-select-none">{{employee.age}}</td>
+    <td class="user-select-none"g>{{employee.salary}}</td>
   </tr>
   </tbody>
 </table>

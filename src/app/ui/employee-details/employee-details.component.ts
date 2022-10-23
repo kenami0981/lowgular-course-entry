@@ -1,7 +1,9 @@
 import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
-import { EmployeeDetailsModel } from '../../model/employee-details.model';
+import { switchMap } from 'rxjs/operators';
+import { EmployeeModel } from '../../model/employee.model';
+import { EmployeeService } from '../../services/employee.service';
 
 @Component({
   selector: 'app-employee-details',
@@ -10,8 +12,8 @@ import { EmployeeDetailsModel } from '../../model/employee-details.model';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EmployeeDetailsComponent {
-  readonly params$: Observable<EmployeeDetailsModel> = this._activatedRoute.params as Observable<EmployeeDetailsModel>;
+  readonly details$: Observable<EmployeeModel> = this._activatedRoute.params.pipe(switchMap(data => this._employeeService.getOne(data['id'])));
 
-  constructor(private _activatedRoute: ActivatedRoute) {
+  constructor(private _activatedRoute: ActivatedRoute, private _employeeService: EmployeeService) {
   }
 }
