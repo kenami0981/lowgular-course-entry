@@ -12,7 +12,7 @@
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let employee of data$|async">
+  <tr *ngFor="let employee of data$|async" [routerLink]="'../employee-details/'+employee.id+'/'+employee.name">
     <th scope="row">{{employee.id}}</th>
     <td>{{employee.name}}</td>
     <td>{{employee.age}}</td>
